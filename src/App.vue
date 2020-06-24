@@ -1,10 +1,24 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div id="app" class="container">
+    <nav class="navbar navbar-expand-sm bg-light">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link :to="{ name: 'Create' }" class="nav-link"
+            >Add Post</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link :to="{ name: 'Index' }" class="nav-link"
+            >All Posts</router-link
+          >
+        </li>
+      </ul>
+    </nav>
+    <transition name="fade">
+      <div class="gap">
+        <router-view></router-view>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -27,6 +41,18 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
+  .gap {
+    margin-top: 50px;
   }
 }
 </style>
