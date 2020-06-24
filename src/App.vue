@@ -7,13 +7,12 @@
             >Posts</router-link
           >
         </li>
-        
+
         <li class="nav-item">
           <router-link :to="{ name: 'Category' }" class="nav-link"
             >Categories</router-link
           >
         </li>
-        
       </ul>
     </nav>
     <transition name="fade">

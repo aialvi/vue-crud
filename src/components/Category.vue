@@ -1,23 +1,17 @@
 <template>
   <div>
-      <br>
+    <br />
     <h4>All Categories</h4>
-    <br>
+    <br />
 
     <table class="table table-hover">
       <thead>
-        <tr>
-          
-          
-         
-        </tr>
+        <tr></tr>
       </thead>
 
       <tbody>
         <tr v-for="category in categories" :key="category._id">
           <td>{{ category.name }}</td>
-        
-        
         </tr>
       </tbody>
     </table>
@@ -30,11 +24,11 @@ import Create from "./Create";
 
 export default {
   components: {
-    Create,
+    Create
   },
   data() {
     return {
-      categories: [],
+      categories: []
     };
   },
 
@@ -45,7 +39,7 @@ export default {
   methods: {
     fetchCategories() {
       let uri = "http://localhost:4000/categories";
-      this.axios.get(uri).then((response) => {
+      this.axios.get(uri).then(response => {
         this.categories = response.data;
       });
     }

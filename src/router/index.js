@@ -7,9 +7,6 @@ import Category from "@/components/Category.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  
-
-  
   {
     name: "Edit",
     path: "/edit",

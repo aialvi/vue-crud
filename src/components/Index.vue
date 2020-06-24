@@ -1,6 +1,17 @@
 <template>
   <div>
-    <h1>Posts</h1>
+    <div class="container py-4">
+      <h1>Posts</h1>
+
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Add Post
+      </button>
+    </div>
 
     <table class="table table-hover">
       <thead>
@@ -9,16 +20,7 @@
           <td>Post Category</td>
           <td>Edit</td>
           <td>Delete</td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              Add Post
-            </button>
-          </td>
+          <td></td>
         </tr>
       </thead>
 
@@ -50,11 +52,11 @@ import Create from "./Create";
 
 export default {
   components: {
-    Create,
+    Create
   },
   data() {
     return {
-      items: [],
+      items: []
     };
   },
 
@@ -65,7 +67,7 @@ export default {
   methods: {
     fetchItems() {
       let uri = "http://localhost:4000/items";
-      this.axios.get(uri).then((response) => {
+      this.axios.get(uri).then(response => {
         this.items = response.data;
       });
     },
@@ -73,7 +75,7 @@ export default {
       let uri = "http://localhost:4000/items/delete/" + id;
       this.items.splice(id, 1);
       this.axios.get(uri);
-    },
-  },
+    }
+  }
 };
 </script>

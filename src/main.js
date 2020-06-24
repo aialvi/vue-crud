@@ -4,12 +4,12 @@ import router from "./router";
 import VueAxios from "vue-axios";
 import axios from "axios";
 
-import jQuery from 'jquery';
+import jQuery from "jquery";
 
 window.$ = window.jQuery = jQuery;
 
-import 'popper.js';
-import 'bootstrap';
+import "popper.js";
+import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue";
 

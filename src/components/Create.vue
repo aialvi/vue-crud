@@ -55,8 +55,6 @@
                     </select>
                   </div>
 
-                  
-
                   <br />
 
                   <div class="form-group">
@@ -122,6 +120,14 @@
                     </div>
 
                     <div class="form-group">
+                      <button
+                        type="button"
+                        class="btn btn-secondary mx-3"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+
                       <input
                         type="submit"
                         class="btn btn-primary"
@@ -134,14 +140,13 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button
+            <!-- <button
               type="button"
               class="btn btn-secondary"
               data-dismiss="modal"
             >
               Close
-            </button>
-            <button type="button" class="btn btn-primary">Save category</button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -157,27 +162,28 @@ export default {
       item: {},
       categories: {},
       selectedCategory: "",
-      category: {},
+      category: {}
     };
   },
   methods: {
     addItem() {
       let uri = "http://localhost:4000/items/add";
-      this.axios.post(uri, this.item).then((response) => {
+      console.log(this.item);
+      this.axios.post(uri, this.item).then(response => {
         console.log(response.data);
         alert("Post Added Succesfully");
       });
     },
     getCategories() {
       let uri = "http://localhost:4000/categories";
-      this.axios.get(uri).then((response) => {
+      this.axios.get(uri).then(response => {
         this.categories = response.data;
         console.log(response);
       });
     },
     addCategory() {
       let uri = "http://localhost:4000/categories/add";
-      this.axios.post(uri, this.category).then((response) => {
+      this.axios.post(uri, this.category).then(response => {
         console.log(response.data);
         alert("Category Added Succesfully");
         this.getCategories();
@@ -186,15 +192,15 @@ export default {
     getCategoryName(e) {
       let value = e.target.value;
       if (value == "CreateCategory") {
-
         console.log(value);
-        window.$('#exampleModal2').modal('show')
+        window.$("#exampleModal2").modal("show");
+      } else {
+        this.item.category = value;
       }
-    },
+    }
   },
   mounted() {
     this.getCategories();
-  },
-
+  }
 };
 </script>
