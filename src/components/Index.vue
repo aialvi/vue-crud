@@ -9,6 +9,16 @@
           <td>Post Category</td>
           <td>Edit</td>
           <td>Delete</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Add Post
+            </button>
+          </td>
         </tr>
       </thead>
 
@@ -31,14 +41,20 @@
         </tr>
       </tbody>
     </table>
+    <Create />
   </div>
 </template>
 
 <script>
+import Create from "./Create";
+
 export default {
+  components: {
+    Create,
+  },
   data() {
     return {
-      items: []
+      items: [],
     };
   },
 
@@ -49,7 +65,7 @@ export default {
   methods: {
     fetchItems() {
       let uri = "http://localhost:4000/items";
-      this.axios.get(uri).then(response => {
+      this.axios.get(uri).then((response) => {
         this.items = response.data;
       });
     },
@@ -57,7 +73,7 @@ export default {
       let uri = "http://localhost:4000/items/delete/" + id;
       this.items.splice(id, 1);
       this.axios.get(uri);
-    }
-  }
+    },
+  },
 };
 </script>

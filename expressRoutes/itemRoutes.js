@@ -10,6 +10,7 @@ itemRoutes.route('/add').post(function (req, res) {
   var item = new Item(req.body);
       item.save()
     .then(item => {
+      
     res.status(200).json({'item': 'Item added successfully'});
     })
     .catch(err => {

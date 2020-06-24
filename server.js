@@ -6,6 +6,7 @@ const express = require("express"),
   config = require("./config/DB");
 
 const itemRoutes = require("./expressRoutes/itemRoutes");
+const categoryRoutes = require("./expressRoutes/categoryRoutes");
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/items", itemRoutes);
+app.use("/categories", categoryRoutes);
 
 const port = process.env.PORT || 4000;
 
