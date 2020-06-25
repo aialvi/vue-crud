@@ -10,6 +10,11 @@ npm install
 npm run serve
 ```
 
+### Database and server configuration
+
+Start the MongoDB Database server using this command: mongod
+Start the Node.js server using this command: nodemon server
+
 ### Compiles and minifies for production
 ```
 npm run build
@@ -22,3 +27,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+### Database and server configuration
+
+Start the MongoDB Database server using this command: mongod
+Start the Node.js server using this command: nodemon server
+
